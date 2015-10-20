@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Secretchronicles Wiki: Introduction to mruby</title>
+      <link rel="stylesheet" href="stylesheets/default.css" type="text/css"
+            media="screen" />
+  </head>
+  <body>
+  <div id="fullpage">
+    <div id="page">
+      <div id="header">
+  <a href="http://www.secretchronicles.de"><img class="logo" src="assets/logo.png" alt="The Secret Chronicles of Dr.M." /></a>
+</div>
+
+<div id="main">
+
+<a href="/">Back to Wiki Homepage</a>
+
+<h1>Secretchronicles Wiki</h1>
+<h2>Introduction to mruby</h2>
+
+<blockquote>
+<p><b><em>Work in progress</em></b><br />
+This article is work-in-progress and not finishet yet. You can help completing it.</em></p>
+</blockquote>
+
+<p>Secretchronicles includes a scripting engine based on <a href="http://www.mruby.org/">mruby</a>, a minimal implementation of the <a href="https://www.ruby-lang.org">Ruby programming language</a>. This page gives you a short overview of the language, please refer to <a href="http://docs.secretchronicles.de">the documentation</a> for more detailed information on the objects available to you in the scripting interface.</p>
+
+<h2>The language</h2>
+<p>As an implementation of the Ruby programming language, mruby inheritated Ruby’s readability, which has always been a design goal of Ruby. The developers hope that this readability makes it more convenient for you as a user of the game to develop terrifying levels full of new features.</p>
+
+<p>Ruby as a language is completely object-oriented, that is, there are no so-called &quot;primitive types&quot; as in other languages. Instead, you deal with <em>classes</em>, abstract descriptions of how groups of things should behave and look like, and with <em>objects</em>, which are derived from the classes and exhibit the behaviour defined in the class to the outside of the world. This programming pattern is based off what you can see in the real world: Both your and your neighbor’s labrador are labradors, and as such exhibit the behaviour usually expected from the <em>labrador per se</em>. Nevertheless they are two very distinct creatures, with different names, and different behaviour in detail.</p>
+
+<p>For getting up and running with Secretchronicles scripting you will not be defining classes, but rather using already predefined ones. A time will come where you find yourself writing the same code for all your levels again and again, and you will want to extract this into a separate file called a &quot;library file&quot;. This will require you to define classes and in general require a more advanced knowledge of the Ruby language, which is beyond the scope of this page. You can find tutorials on the language on the web, just keep in mind that Secretchronicles only includes mruby, which most notably does not ship with Ruby’s &quot;standard library&quot; nor with <a href="http://wiki.secretchronicles.de/RubyGems">RubyGems</a> if you come over these terms.</p>
+
+<h2>The level script</h2>
+<p>So, as a level editor, how do you gain access to the script engine? Once you opened the level editor, switch to the settings menu (lower-left corner of the screen). On the top of the screen there are a few tabs now, one labelled &quot;script&quot;. Switch to that one. You will be faced with a large and empty text area now: This is where you can enter your script code.</p>
+
+<h3>Basics</h3>
+<p>In the current version of Secretchronicles (2.0.0) it is not possible to output information onto the screen from the level script in a way useful for you as a level developer, sadly. This will improve in later versions, but hey, we are just starting out. Instead, you should run Secretchronicles from the console/terminal for now, and configure it to run in windowed mode rather than in fullscreen. Place the game window next to the terminal, so that you can see the output that goes to the terminal. For level debugging, you will be using this setup quite a lot.</p>
+
+<p>Use the <code>#puts</code> and <code>#p</code> directives to output text to the console, like this:</p>
+
+<pre><code class="ruby">
+puts "Hello, World!"
+</code></pre>
+
+<p>Click the &quot;save&quot; button below the textfield, then save the level and run it. The text &quot;Hello, World!&quot; should appear in the console next to the game window. Congratulations, you have written your first level script!</p>
+
+<p><code>#puts</code> is one of mruby’s core instructions (actually, it’s a method of the Kernel module, but forget about this for now) and available to you everywhere without having to take special precautions. The stuff between the quotation marks is called a <em>string</em>, and defines text that you want to work with, e.g. by passing it to @#puts@, which outputs it to the console.</p>
+
+<p>Only outputting static text to the console is boring. What if you wanted to process the text before you output it? Well, then you have to use a concept called <em>variables</em>. A variable points to an object (remember that term from above?) and whenever you use the variable’s name in your code, you will be using the object it points to. Example:</p>
+
+<pre><code class="ruby">
+text = "Hello, World"
+text << "! Hi!"
+puts text
+</code></pre>
+
+<p>In this case, the string <code>Hello</code>, world is assigned to the variable named <code>text</code>. You can freely choose any name you like, as long as it is entirely lowercase, does not start with a number, and does not conflict with mruby’s internal identifiers (there are only very few of them, so the risk you run into them accidentally when assigning a variable is low). The syntax for assigning variables, as shown, is just a name of your choice, followed by an equation sign, followed by the object you want to assign (a string in the above case). The second line invokes the &lt;&lt; operator on the object referenced by the variable, i.e. on the string, and hands it another string. The &lt;&lt; operator appends the new string to the existing one, modifying it. Hence, the call to <code>#puts</code> then outputs the concatenated text &quot;<code>Hello, World! Hi!</code>&quot;.</p>
+
+<p>mruby can also do math for you. Try something like this:</p>
+
+<pre><code class="ruby">
+x = 5 + 10
+x = x + 14
+puts x
+</code></pre>
+
+<p>The first line works exactly as expected. It adds the numbers 5 and 10, and then assigns the number 15 to the variable named x. If you know advanced mathematics, don’t let you be put off by the fact this looks like a linear equation. It isn’t. It’s program code that has nothing to do with that. Continuing with the second line, 14 is then added to the variable x, resulting in a value of 29. This value is then, again, assigned to the variable x, which is what is then output with @#puts@ in the last line.</p>
+
+<p>Note there’s a short form for assigning to a variable while using its value. It consists of an equal sign immediately followed by the operator. The above example could also have been written like this, which is more concise and thus preferred:</p>
+
+<pre><code class="ruby">
+x = 5 + 10
+x += 14
+puts x
+</code></pre>
+
+<p>Short forms like this are usually nicknamed &quot;syntactic sugar&quot;. They exist solely for the purpose of making the language easier to read and write, which has already been outlined as a design goal of Ruby, which therefore allows such short forms at various places.</p>
+
+<p>Both strings and numbers are, as everything in Ruby, objects. These objects are described, as explained, by classes they &quot;belong to&quot;. The string &quot;@Hello, world!@&quot; belongs to a class named @String@, and the number 14 belongs to a class named @Integer@. In informatics, the correct term for this relationship is <em>instanciation</em>, and &quot;<code>Hello, world!</code>&quot; and 14 are said to be instances of their respective classes. These classes contain methods, which desribe what actions an object can take. A string, for example, can substitute parts of itself using a method named <a href="http://ruby-doc.org/core-2.1.2/String.html#method-i-sub">String#sub</a>. Methods are called by postfixing the object resp. the variable that points to the object with a period, followed by the method name, followed optionally by any parameters the method needs for its action in parantheses. @String#sub@ for example wants to parameters: What to replace, and what should replace it. Both can be strings, in which case a call would look like this:</p>
+
+<pre><code class="ruby">
+text = "Hello world!"
+text = text.sub("e", "u")
+puts text
+</code></pre>
+
+<p>This outputs <code>Hello, world!</code>.</p>
+
+<p>The parentheses around the parameters are optional mostly. The following is equivalent to the above:</p>
+
+<pre><code class="ruby">
+text = "Hello world!"
+text = text.sub "e", "u"
+puts(text)
+</code></pre>
+
+<p>However, this is considered unidiomatic Ruby code. The @#puts@ method is usually always called without the parentheses as its nature is more of a command rather than a method, while methods like @String#sub@ clearly operate on the given object (the caller). As a rule of thumb, always use parentheses unless you have been explicitly shown an exception to that rule. <code>#puts</code> is such an exception.</p>
+
+<h2>Working with the game</h2>
+<p>Until now you have only been interacting with the console. This was necessary to teach you the most basic concepts of the language, so that we can now advance to interacting with the game itself.</p>
+
+<p>To be continued...</p>
+
+      </div>
+    </div>
+
+      <div id="footer">
+
+  <p id="utc-time"></p>
+
+  <script>
+  (function() {
+    'use strict';
+    function updateUTCTime() {
+      document.getElementById("utc-time").innerHTML = 'UTC Time Now: ' + (new Date()).toUTCString();
+    }
+    window.setInterval(updateUTCTime, 1000);
+    updateUTCTime();
+  })();
+  </script>
+
+  <p>Copyright © 2015 The Secret Chronicles Team<br />
+	Hosting thanks to <a href="http://www.first-root.com"><img src="assets/first-root.png" alt="First Root" /></a>
+  </p>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>
+
+ssets

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Secretchronicles Wiki: Creating a GDB stacktrace</title>
+      <link rel="stylesheet" href="stylesheets/default.css" type="text/css"
+            media="screen" />
+  </head>
+  <body>
+  <div id="fullpage">
+    <div id="page">
+      <div id="header">
+  <a href="http://www.secretchronicles.de"><img class="logo" src="assets/logo.png" alt="The Secret Chronicles of Dr.M." /></a>
+</div>
+
+<div id="main">
+
+<a href="/">Back to Wiki Homepage</a>
+
+<h1>Secretchronicles Wiki</h1>
+<h2>Creating a GDB stacktrace</h2>
+<p>From time to time, this happens to all good programs, and SMC is not an exception: it crashes. Crashes are usually the result of some coding error and are hence to be qualified as a bug that needs to be fixed for a future version. However, developers can’t fix what they can’t see. So, if you get a crash with SMC and you want to have it fixed to make it disappear, you should provide a <em><strong>stacktrace</strong></em> to the developers in your bug report. A stacktrace is the complete function call chain at a given point of runtime in the program.</p>
+
+<h2>Prerequisites</h2>
+<p>For creating a stacktrace you will need to have <a href="https://www.gnu.org/software/gdb/">GDB</a>, the GNU Debugger, installed. Get it from your Linux distributor’s package repository, e.g. for Ubuntu:</p>
+
+<pre><code>apt-get install gdb
+</code></pre>
+
+<p>For Windows, you have to install <a href="http://mingw.org/">MinGW</a>, and install GDB inside MinGW.</p>
+
+<p>Next, you need a version of SMC that contains <em><strong>debugging symbols</strong></em>. These are special builds that have the file and line information attached to all the functions in SMC, and this information is required for the developers to find the place in the code where everything blows up. Currently, as we do not yet have reached version 2.0.0 final, all precompiled binaries available from the SMC team have this debugging information (and hence are huge, usually way over 100 MiB), so you don’t have to worry about that. If you compile SMC yourself from the sourcecode, be sure you do it like this or a smiliar way:</p>
+
+<pre><code>cmake -DCMAKE_INSTALL_PREFIX=$PWD/testinstall -DCMAKE_BUILD_TYPE=Debug ..
+</code></pre>
+
+<p>The essential part here is the <em>-DCMAKE<em>BUILD</em>TYPE=Debug</em> flag which tells cmake to compile SMC with gcc’s <em>-g</em> switch, which in turn adds the debugging information to the symbols.</p>
+
+<p>Also, in order to ease switching between SMC and GDB, you want to configure SMC to run in windowed mode rather than fullscreen mode.</p>
+
+<h2>Creating the stacktrace</h2>
+<p>First you need to find out where your <em>smc</em> binary is. For now, let’s assume it’s in <em>/opt/smc/bin/smc</em>; on your box it will certainly be somewhere else.</p>
+
+<p>Open a terminal (on Windows you want to open the MinGW environment shell or an MSYS shell) and run</p>
+
+<pre><code>$ gdb /opt/smc/bin/smc
+GNU gdb (GDB) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-unknown-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+Reading symbols from /opt/smc/bin/smc...done.
+(gdb) 
+</code></pre>
+
+<p><em>(gdb)</em> is the GDB prompt. You now issue the <em>run</em> command to start SMC.</p>
+
+<pre><code>(gdb) run
+Starting program: /opt/smc/bin/smc 
+warning: Could not load shared library symbols for linux-vdso.so.1.
+Do you need "set solib-search-path" or "set sysroot"?
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+Initializing resource manager and core classes
+Game data directory: /opt/smc/share/smc
+User data directory: /home/quintus/.local/share/smc
+User cache directory: /home/quintus/.cache/smc
+User config directory: /home/quintus/.config/smc
+Configuration file is '/home/quintus/.config/smc/config.xml'.
+Translation locale is de_DE.UTF-8
+...
+</code></pre>
+
+<p>Now reproduce your crash. When SMC crashes, the window will freeze and you will see something like this in GDB’s interface:</p>
+
+<pre><code>Program received SIGSEGV, segmentation fault.
+(gdb)
+</code></pre>
+
+<p>Issue the <em>bt</em> command in order to obtain the stacktrace.</p>
+
+<pre><code>(gdb) bt
+#0  0x00007ffff57cdd2d in nanosleep () from /usr/lib/libpthread.so.0
+#1  0x00007ffff5a309a5 in SDL_Delay () from /usr/lib/libSDL-1.2.so.0
+#2  0x000000000069e636 in SMC::Correct_Frame_Time (fps=100) at /home/quintus/repos/privat/projekte/c++/SMC/smc/src/core/framerate.cpp:208
+#3  0x0000000000675439 in SMC::Update_Game () at /home/quintus/repos/privat/projekte/c++/SMC/smc/src/core/main.cpp:640
+#4  0x000000000067400c in main (argc=1, argv=0x7fffffffe8e8) at /home/quintus/repos/privat/projekte/c++/SMC/smc/src/core/main.cpp:207
+(gdb)
+</code></pre>
+
+<p>This is the stacktrace information you need to supply to the developers. It tends to vary in length, so be careful to copy the <em><em>entire</em></em> stacktrace, starting with the line that begins with <code>#0</code>  and finishing with the line that immediately preceeds the following <code>(gdb)</code> prompt.</p>
+
+<p>In order to leave the debugging session, use <em>quit</em>.</p>
+
+<pre><code>(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 5659] will be killed.
+
+Quit anyway? (y or n) y
+</code></pre>
+
+
+      </div>
+    </div>
+
+      <div id="footer">
+
+  <p id="utc-time"></p>
+
+  <script>
+  (function() {
+    'use strict';
+    function updateUTCTime() {
+      document.getElementById("utc-time").innerHTML = 'UTC Time Now: ' + (new Date()).toUTCString();
+    }
+    window.setInterval(updateUTCTime, 1000);
+    updateUTCTime();
+  })();
+  </script>
+
+  <p>Copyright © 2015 The Secret Chronicles Team<br />
+	Hosting thanks to <a href="http://www.first-root.com"><img src="assets/first-root.png" alt="First Root" /></a>
+  </p>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>
+
+ssets

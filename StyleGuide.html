@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Secretchronicles Wiki: Style Guide</title>
+      <link rel="stylesheet" href="stylesheets/default.css" type="text/css"
+            media="screen" />
+  </head>
+  <body>
+  <div id="fullpage">
+    <div id="page">
+      <div id="header">
+  <a href="http://www.secretchronicles.de"><img class="logo" src="assets/logo.png" alt="The Secret Chronicles of Dr.M." /></a>
+</div>
+
+<div id="main">
+
+<a href="/">Back to Wiki Homepage</a>
+
+<h1>Secretchronicles Wiki</h1>
+<h2>Style Guide</h2>
+
+<blockquote>
+<b><em>Note</em></b><br />
+  This article is currently a stub that will describe things artists need to know to start contributing graphics to TSC. The parts below are intended to be areas that need to be discussed in the finished page.</em>
+</blockquote>
+
+<h2>Editor</h2>
+<p>The graphics editor generally recommended to create graphcis for TSC is <a href="http://inkscape.org">Inkscape</a>, because it is freely available to everyone. Proprietary solutions make it harder for other artists to work with your files, as the respective programs have to be acquired first by the artist, who may not be able to afford it.</p>
+
+<h2>Consistency</h2>
+<p>No matter how good any one artist is, if we throw together the different unique styles of all of the art contributors to TSC over the years, you'd end up with a jumbled mess. For this reason, it's very important to follow the conventions used in the current artwork, and in games with similar art styles. By having us all work towards a similar style, we give the game a more cohesive, more attractive looking style. Before creating your first piece of TSC art, it's recommended to pick an existing piece of TSC artwork that fulfills the same purpose and that you like the look of, and take a look at it's source file. Examine how it uses colour, line, proportion and layout and incorporate that into your own submission.</p>
+
+<p>We've listed some of the conventions used already here, below:</p>
+
+<h2>Outlines (foreground, background, color, silhouette, internal)</h2>
+<p>Objects should generally use some form of outline to increase visibility, especially if it is an object that is likely to move. The outline around the silhouette of the image should be thicker than on lines shown away from edges. On a 256x256px tile, this generally translates as an outline of 8 points.</p>
+
+<p>Outlines should generally should be a darker version of the objects colour, rather than black (unless of course, the object is already dark grey, of course). Black reduces the vibrance of the world's appearance, and becomes overly distracting if used in places other than what is most important to the character because of it's high contrast with the generally light toned levels. Accordingly save black outlines for enemies and the player character.</p>
+
+<h2>Level of detail</h2>
+<h2>Shading</h2>
+<p>Characters, enemies and interactive objects are rendered as though fully 3D with fully curved shading. Foreground and background objects are rendered with a &quot;half 3D&quot; shading style, giving enough shading around the outside edges to give them volume, but still remaining more flat away from the edges.</p>
+
+<h2>Texture filters</h2>
+<p>Using Inkscape's filter effects or similar to provide 3d looking textures can give a nice textured look to images, but can quickly become overly distracting if not used subtly, especially on tiles that take up a lot of screen space such as backgrounds and frequently repeated ground tiles. A general rule of thumb is to have their contrast be high enough that their effect is visible, but low enough that it isn't drawing the players attention (away from the game itself).</p>
+
+<h2>Eyes</h2>
+<p>Two types of eyes predominate TSC graphics. The small, shiny, black oval eyes and the larger, rounder, white eyes with a black pupil (&quot;pip&quot; or &quot;black&quot; eyes and &quot;balloon&quot; or &quot;white&quot; eyes, respectively). As a rule of thumb, pip eyes are used on small characters / enemies and inanimate objects, while balloon eyes are used on medium to large size characters only.</p>
+
+<h2>Fonts</h2>
+<h2>Annotating Inkscape files</h2>
+<p>Remember that you may not be the only person to use your files, and that you may not even be around when they're needed for modifications. Accordingly, try to follow the conventions in this style guide and also have an annotation layer, where you have text explaining any unusual features of the file such as use of linked objects, swatches, hidden objects etc.</p>
+
+<h2>Frame output setup</h2>
+<p>When preparing multiple images in one file, such as frames of an animation, using the following standard can make it much faster for you to make modifications, and also for any other team member needing to use your files later:</p>
+
+<ol>
+<li>Place frames in a horizontal line, one set of animation frames per row, first frame of the left, extending right.</li>
+<li>On the top layer, create a layer called &quot;Export&quot;. On it, place semi transparent squares placed to mark the output area of each frame below.</li>
+<li>Go through and export each of these squares as the filename that you eventually want that frame to be called, eg 1.png, 2.png... etc. Make sure the pixel sizes are correct. <em><em>Tip:</em></em> You can set these to be the corresponding location in pixmaps where your TSC is installed (often /opt/smc/data/pixmaps/...) This way, when you save, you can just refresh the image cache without having to copy files across to see your work each time you make a change and export.</li>
+<li>After you have created the frame drawings you wish to output.
+5 When you're ready to export all your frames:
+
+<ol>
+<li>Hide the drawing layer</li>
+<li>Select all the frame squares on the export layer</li>
+<li>Toggle the visibility of both layers again</li>
+<li>Go to the export dialogue (Ctrl+shift+E) and simply tick &quot;batch export&quot; and then the &quot;Export&quot; button.</li>
+</ol></li>
+</ol>
+
+<p>All your frames are now exported in one go, and ready to be seen in the game with a simple image cache refresh (Game menu &gt; Video &gt; Refresh cache). If you need to make alterations, just repeat step 5 again afterwards.</p>
+
+<h2>How to test ingame graphics</h2>
+<h2>No use of copyright material</h2>
+<p>The title says it all really. Don't use any copyright material in your artwork, unless it is under a GPL 3 / CC BY-SA compatible license, and even then you need to make sure the author is properly credited in the settings file and game credits. This includes not just pictures but sound samples, fonts, clip art etc.</p>
+
+<h2>Back arms/legs</h2>
+<h2>Junior jobs / blockers</h2>
+<h2>Overworld</h2>
+<p>The overworld (or map screen) follows a more charicatured, round/square, iconic chibi style than the ingame artwork. Heads, Hands and feet are larger, arms, legs and torsos are smaller with the overall characters fitting more into a square / circular shape. Shading is used on background objects, but not on characters / enemies.</p>
+
+<h2>Swatching / linking</h2>
+<p>When creating multiple frames or similar images in one file, make use of swatching (using Inkscape's &quot;swatch&quot; feature to have many objects reference one colour) and linked instances (duplicating objects with alt+d instead of ctrl+d) to that if the frames need altering later, it can be done with a minimum of effort duplicated across many fram images.</p>
+
+<p>Just make sure to annotate these uses on the annotation layer (see above) as it can be difficult when looking at someone else's file to figure out things like which object is the original out of the 12 instances, etc.</p>
+
+      </div>
+    </div>
+
+      <div id="footer">
+
+  <p id="utc-time"></p>
+
+  <script>
+  (function() {
+    'use strict';
+    function updateUTCTime() {
+      document.getElementById("utc-time").innerHTML = 'UTC Time Now: ' + (new Date()).toUTCString();
+    }
+    window.setInterval(updateUTCTime, 1000);
+    updateUTCTime();
+  })();
+  </script>
+
+  <p>Copyright © 2015 The Secret Chronicles Team<br />
+	Hosting thanks to <a href="http://www.first-root.com"><img src="assets/first-root.png" alt="First Root" /></a>
+  </p>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>
+
+ssets

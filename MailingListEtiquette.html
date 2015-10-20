@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Secretchronicles Wiki: Mailing List Etiquette</title>
+      <link rel="stylesheet" href="stylesheets/default.css" type="text/css"
+            media="screen" />
+  </head>
+  <body>
+  <div id="fullpage">
+    <div id="page">
+      <div id="header">
+  <a href="http://www.secretchronicles.de"><img class="logo" src="assets/logo.png" alt="The Secret Chronicles of Dr.M." /></a>
+</div>
+
+<div id="main">
+
+<a href="/">Back to Wiki Homepage</a>
+
+<h1>Secretchronicles Wiki</h1>
+<h2>Mailing List Etiquette</h2>
+<p>The TSC project uses <a href="http://lists.secretchronicles.de">some mailinglists</a> for coordination of the development process. Mailinglists basically work like forums, but completely over email (with an optional public web archive). This allows everyone to get the most recent news easily and directly reply from their inbox, plus nice threaded views, killfiles, and all the nice features <em>good</em> email clients (= non-web email clients) support.</p>
+
+<p>This page lists the things you need to know to properly work with a mailinglist. Most of this should be intuitive, but just in case it is spelled out here.</p>
+
+<h2>General</h2>
+<p>A mailinglist is managed by a mailinglist software that receives the emails sent to the list address (e.g. tsc-devel@lists.secretchronicles.de) and sends a copy of that email to every subscriber of the mailinglist. At TSC, we use <a href="http://www.mlmmj.org">mlmmj</a> as the mailinglist software.</p>
+
+<p>This means that you address your messages <em>only</em> to the mailinglist address, not to each of the subscribers. That’d be impossible with a large mailinglist anyway. Let the mailinglist software handle that for you.</p>
+
+<p>Mailinglists generally require subscription so that they are not spammed by anonymous addresses. For the TSC mailinglists, you can find subscription instructions <a href="http://lists.secretchronicles.de">here</a>. Similaryly, you need to unsubscribe from a mailinglist again if you want no further messages from the mailinglist.</p>
+
+<p>It is highly recommended to use an email client (or even better server) that supports email filtering. Your main inbox will quickly get cluttered if you follow more than one mailinglist, so you are way better off to automatically have your mail software place the mailinglist messages into a separate folder before you even see them. This will keep your INBOX clean and collect all mailinglist-sent messages in one folder. Another tip is to use a threaded view so that you can see who replied to whom during the course of a thread. A good email client to use is [&quot;It supports these and many more features. Generally badly usable for mailinglists are web-based mail clients, with GMail being a possible exception.</p>
+
+<h2>Guidelines</h2>
+<h3>Courtesy Copies</h3>
+<p>First: Everybody subscribed to the list gets all messages sent to the list. Thus, don’t include an entire message of someone else in your post to the mailinglist (this is sometimes ironically called a “courtesy copy”). Nobody wants to read everything twice. Time is spare.</p>
+
+<h3>Plaintext mail</h3>
+<p>Do not use HTML email when posting to a mailinglist. Mailinglists often get archived on the web, and HTML messages copied as-is to a public web archive make for a wonderful security vulnerability as it allows the attacker to hijack the archive website. Therefore mailinglist archives will ignore HTML parts of emails or escape them (making them look very unappealing). The TSC list archives do that also.</p>
+
+<p>Then, HTML email is hard to work with. Handling it in the email client is cumbersome (autoquote function will not work correctly for example), and people using text-only email clients (many programmers and admins do!) can’t even read HTML messages. HTML email is bloated. Most HTML-only mail is spam, to such a degree that one can set up a pretty efficient mail filter that automatically flags every HTML email as spam, and there are people doing this. Don’t let them qualify your important content as spam.</p>
+
+<h3>Line breaking</h3>
+<p>Use an email client that automatically inserts line breaks into your paragraphs. No line should be longer than 80 characters, which is very hard to read already. Better keep line lengths between 60-70 characters. Good email clients do that automatically, you don’t need to do that by hand. Really.</p>
+
+<pre><code>Not breaking your lines will result in something like this in a good number of email clients that really looks bad and you really can’t read that. Wasn’t that hard to read?
+
+Alternatively, some email clients will break it li
+ke this which is also bad and hard to read. You do
+’nt want that either.
+</code></pre>
+
+<h3>Quoting</h3>
+<p>In plaintext emails one quotes with &gt; or | signs; good email clients will highlight such parts in a different color. Use quotations where appropriate and <em>do not quote the entire message</em> (see “courtesy copies” above).</p>
+
+<p>Looks like this:</p>
+
+<pre><code>&gt; I think we should do it like this: ...
+
+I don’t think this is a good idea.
+
+> Some other important stuff.
+
+Probably you should...
+</code></pre>
+
+<p>Notice how one only quotes those parts one actually replies to. Quotes have a function. Don’t quote things not important for your message. It is absolutely fine to not quote anything from a previous message if you bring up completely new points.</p>
+
+<p>If you need nested quotes (use sparingly), you can use one &gt; per indentation, e.g.:</p>
+
+<pre><code>&gt;&gt; Foo
+&gt; Bar
+Baz
+</code></pre>
+
+<h3>Top Posting</h3>
+<p>“Top-posting” is the act of starting your reply at the top of the email, and a large courtesy copy at the bottom. This destroys the flow of read (and courtesy copies are annoying anyway). The maximum you can post at the top of an email is a greeting. This is wrong:</p>
+
+<pre><code>Hi there,
+
+this is my important reply.
+
+> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+> nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+> erat, sed diam voluptua. At vero eos et accusam et justo duo
+> dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+> sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+> amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+> invidunt ut labore et dolore magna aliquyam erat, sed diam
+> voluptua. At vero eos et accusam et justo duo dolores et ea
+> rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+> Lorem ipsum dolor sit amet.
+> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+> nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+> erat, sed diam voluptua. At vero eos et accusam et justo duo
+> dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+> sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+> amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+> invidunt ut labore et dolore magna aliquyam erat, sed diam
+> voluptua. At vero eos et accusam et justo duo dolores et ea
+> rebum. Stet clita kasd gubergren, no sea takimata sanctus est
+> Lorem ipsum dolor sit amet.
+
+Lg
+foo
+</code></pre>
+
+<p>This is correct:</p>
+
+<pre><code>Hi there,
+
+> Lorem ipsum dolor sit amet
+
+This is my important reply.
+
+Lg
+foo
+</code></pre>
+
+<p>Much nicer to read, isn’t it?</p>
+
+<h3>Emphasis</h3>
+<p>If you can’t use your <code>&lt;blink&gt;</code> and <code>&lt;marquee&gt;</code> HTML tags, how do you emphasise in a plaintext-only message? Like this:</p>
+
+<pre><code>
+  /this is italic/       (= mild emphasis)
+  *this is bold*         (= strong emphasis)
+  **this is thick bold** (= very strong emphasis)
+  _this is underlined_   (= what do you need that for?)
+</code></pre>
+
+<p>A good email client will recognise these and format the text accordingly.</p>
+
+<h3>Unicode</h3>
+<p>Plaintext email does not mean ASCII-only email. Use Unicode freely and often, it enriches the Internet in many useful ways.</p>
+
+<h3>Attachments</h3>
+<p>Plaintext email also does not mean “stash everything into the mail body”. Attachments (aka MIME parts) are the usual and recommended way to send larger assets with your messages (for example large log files or binary files). A log file adds no value to the text of your message, use an attachment to transmit it.</p>
+
+<p>On the other hand, email is no truck. Do not sent things by email, not even as an attachment, that exceed 10 MiB in size. Upload such a large file to a server (for example, to your personal SFTP server you have access to with your TSC team membership) and instead share a link in your email to the mailinglist. The TSC mailinglists will reject too large mails.</p>
+
+<h3>Subject</h3>
+<p>Use a meaningful subject for your message. “Help”, “Newbie”, etc. does convey zero information about your message. It is likely that it will get ignored.</p>
+
+<h3>Replying</h3>
+<p>Reply on the mailinglist. Every good email client (you know, usually this means non-web clients) provide a separate button “reply to list”. Use that one when replying to a mailinglist email. If you don’t do that, you send your reply only to the person who wrote the post, i.e. you create a so-called “personal message” (PM for short). The receiver will get annoyed if he sees you reply only to him and not to the general public. Pro tip: Check the “To:” field before you hit the “send” button. It must contain the mailinglist address, and not the address of the post writer.</p>
+
+<p>When replying, reply to the exact message you are referring to. Mails use a hidden header field called the “Message-ID” that (good) mail clients use to display multiple mails in a threaded view; on reply, your mail client copies this Message-ID into a new hidden header field called “References” which is then in turn used by the receiving mail client for ordering. If you reply to the wrong message, those mail clients will sort in your message under that wrong one, causing confusion. If you don’t want to refer to a specific message in the thread, but want to bring up something totally new that is still on topic in that specific thread, reply to the initial post of the thread.</p>
+
+<p>Do not reply to existing messages for starting a new thread. This is known as “thread hijacking” and completely disturbs the conversation flow. You risk being banned from the ML quickly if you do that. Send a new message using your mail client’s “compose message” functionality for new topics.</p>
+
+<h3>Signatures</h3>
+<p>Use of signatures is fine. Many people use them for showing information like a GPG key ID or some famous quote. Your email signature is part of your personality, an aspect of self-expression. If using signatures, use the standard signature separator <code>-- </code> (<em>note the space at the end!</em>). Email clients and web archives will notice this and display it in a slightly different colour, allow hiding it, or even cut it off entirely depending on the gusto of the user.</p>
+
+<p>Keep signatures at a maximum of five to six lines. Anything longer than four lines usually looks suspicious, unless of course you use beautiful ASCII art.</p>
+
+<h3>Crossposting</h3>
+<p>A “crosspost” is a post sent to multiple mailinglists at once. Crossposting for the sake of getting an answer more quickly is frowned upon; be patient and wait some time before you try again somewhere else. Doing a crosspost is only appropriate if the topic in question affects multiple communities at once. For instance, you sometimes see crossposts between the GCC developers’ mailinglist and the MinGW mailinglist when some MinGW user discovers a MinGW-specific bug in GCC.</p>
+
+<p>Rule of thumb: If in doubt, do not crosspost.</p>
+
+<h3>Referencing</h3>
+<p>From time to time you want to reference older messages from earlier threads. There are two possibilities to do that:</p>
+
+<ol>
+<li>Post the Message-ID of the message you reference. To do this, open the message you want to reference, instruct your mail clients to show all mail headers, find the Message-ID header, and copy its contents to your new message.</li>
+<li>Post a link to the public web archive. This of course is only possible if there <em>is</em> a pubic web archive.</li>
+</ol>
+
+<p>Example:</p>
+
+<pre><code>
+Method #1:
+I looked it up, and the issue has already been discussed in message
+<55F04707.6070603@aim.com>.
+
+Method #2:
+I looked it up, and the issue has been discussed earlier already&#91;1&#93;..
+
+&#91;1&#93;: http://lists.secretchronicles.de/tsc-devel/2015/09/0000025.html
+</code></pre>
+
+<p>Good email clients (that usually means non-web clients) regocnise the message ID and will open the corresponding message when clicking on it or selecting it with the keyboard.</p>
+
+<h3>Inline links</h3>
+<p>Usually it’s best to use footnotes for hyperlinks so that they don’t clutter the main message text. Compare:</p>
+
+<pre><code>I found a super cool website (http://www.secretchronicles.de/en/screenshots/)
+that I encourage you to look on. The game discussed there is unique and I really
+couldn’t imagine anything better.
+</code></pre>
+
+<p>vs.</p>
+
+<pre><code>I found a super cool website&#91;1&#93; that I encourage you to look on.
+The game discussed there is unique and I really couldn’t imagine
+anything better.
+
+&#91;1&#93;: http://www.secretchronicles.de/en/screenshots/
+</code></pre>
+
+<p>The latter version doesn’t disrupt text flow, whereas the former makes you search for the continuation of the sentence. The link is not part of the text, and thus it shouldn’t be part of it.</p>
+
+<p>Some people prefer Unicode footnote numbers. That’s also okay:</p>
+
+<pre><code>I found a super cool website¹ that I encourage you to look on.
+The game discussed there is unique and I really couldn’t imagine
+anything better.
+
+¹ http://www.secretchronicles.de/en/screenshots/
+</code></pre>
+
+<h3>Language</h3>
+<p>In your writing, show you are an educated and civil person. Use proper orthography and proper language. Avoid abbreviations like “ur” instead of “your”, “u” instead of “you”, etc. Not everybody speaks English as firm as you, and it makes you look childish. A mailinglist is a serious medium, not an average Facebook page. Use your email client’s spell checker.</p>
+
+<p>You can use common abbrevations like “IMHO” or “ASAP” if you want, but avoiding them also looks still better. After all, you wouldn’t write those in a real letter, would you?</p>
+
+<p>Do not write entire messages in capital letters. Capital letters are commonly perceived as shouting, and nobody wants to speak to persons who are shouting all day long.</p>
+
+<h2>Conclusion</h2>
+<p>If you use a proper e-mail client, then most of the above is fulfilled automatically for you. With rare exceptions, web-based email clients are pretty much unusable with regard to mailinglist etiquete, and for that matter, they’re pretty much unusable for any serious emailing, because a lot of the above is not at all specific to mailinglists. It is just that people reading and writing on mailinglists are email power-users that will get annoyed if they repeatedly get unreadable messages. Thus, install one of the email clients listed below.</p>
+
+<p>If this list looks overwhelming to you, it isn’t. One gets used to these rules pretty quickly, because practise has proven they <em>are</em> useful. It makes email so much easier to read if they are properly followed. Also, nobody will yell on you if you accidentally violate one or multiple rules of this document one or even a few times. People will get annoyed if you repeatedly break these rules, especially if the problem with your message was pointed out earlier.</p>
+
+<h2>Good email clients</h2>
+<p>The email clients listed here, if used properly, will format messages according to the above rules. Please add to this list!</p>
+
+<ul>
+<li><a href="https://mozilla.org/thunderbird">Mozilla Thunderbird</a></li>
+<li><a href="http://www.claws-mail.org">Claws Mail</a></li>
+<li><a href="http://www.mutt.org">Mutt (text-based)</a></li>
+</ul>
+
+<h2>Known bad email clients</h2>
+<p>The email clients listed here are unusable in their default configuration. They will violate one or multiple of the above rules. Please add to this list!</p>
+
+<ul>
+<li>MS Outlook</li>
+<li>MS Outlook Express</li>
+<li>Most web-based email clients.</li>
+</ul>
+      </div>
+    </div>
+
+      <div id="footer">
+
+  <p id="utc-time"></p>
+
+  <script>
+  (function() {
+    'use strict';
+    function updateUTCTime() {
+      document.getElementById("utc-time").innerHTML = 'UTC Time Now: ' + (new Date()).toUTCString();
+    }
+    window.setInterval(updateUTCTime, 1000);
+    updateUTCTime();
+  })();
+  </script>
+
+  <p>Copyright © 2015 The Secret Chronicles Team<br />
+	Hosting thanks to <a href="http://www.first-root.com"><img src="assets/first-root.png" alt="First Root" /></a>
+  </p>
+</div>
+
+
+  </div>
+</div>
+
+</body>
+</html>
+
+ssets
