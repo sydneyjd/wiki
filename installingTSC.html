@@ -44,7 +44,7 @@
 <h2>Installation instructions for TSC</h2>
 <p>TSC uses <a href="https://cmake.org">CMake</a> as the build system, so the first thing you have to ensure is that you have CMake installed.</p>
 
-<p>TSC currently supports the Linux and Windows platforms officially. To be more exact, it is tested against Arch Linux,Windows 7,Ubuntu 14.04 and newer, and Debian Jessie. It has also been tested to work on Ubuntu 12.04 and Opensuse 13.2, but has a lot of issues building. We prefer that you use one of the tried and known to work OS'es. <em><strong>Fedora 20 and Windows XP are unsupported</strong></em>.</p>
+<p>TSC currently supports the Linux and Windows platforms officially. To be more exact, it is tested against Windows 7, Windows 10, Ubuntu 16.10 and newer, and Debian Stretch. It has also been tested to work on Ubuntu 16.04, but has a lot of issues building. We prefer that you use one of the tried and known to work OS'es. <em><strong>Fedora 20 and Windows XP/Vista are unsupported</strong></em>.</p>
 
 <p>TSC can be installed either from Git, meaning that you clone the repository, or from a release tarball, where for the purpose of this document a beta release is considered a release. Finally, you have the possibility to cross-compile to Windows from Linux either from Git or from a release tarball. Each of these possibilities will be covered after we have had a look on the dependencies. Note that if you want to crosscompile, you should probably read this entire file and not just the section on crosscompilation to get a better understanding.</p>
 
@@ -56,6 +56,7 @@
 
 <ul>
 <li>A Ruby 1.9 or 2.0 installation with <code>rake</code> in your PATH.</li>
+<li> CEGUI 0.8.5+</>
 <li>The <code>gperf</code> program.</li>
 <li>The <code>pkg-config</code> program.</li>
 <li>The <code>bison</code> program.</li>
@@ -84,7 +85,6 @@
 <li>The DevIL library.</li>
 </ul>
 
-<p>Additionally, TSC needs CEGUI version 0.7.x. However, as this old version is not provided by any modern Linux distribution anymore, the build system has been set up to download and compile it on its own and then link it in statically. <em>For Windows</em> (see below) this does not hold true, you have to provide CEGUI 0.7.x libraries yourself (or just use MXE as described below). We are working on the issue and hope to get it resolved with the next feature release of TSC.</p>
 
 <p>The following commandline installs all dependencies required to built TSC on Ubuntu/Debian linux:</p>
 
@@ -98,7 +98,7 @@
 <h3>Windows dependencies</h3>
 <ul>
 <li>The <a href="http://freeimage.sourceforge.net/">FreeImage</a> library.</li>
-<li>CEGUI version 0.7.x. CEGUI 0.8.x is not yet supported.</li>
+<li>CEGUI 0.8.5+.</li>
 <li>For generating a setup installer:</li>
 <li>The NSIS tools.</li>
 </ul>

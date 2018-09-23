@@ -7,7 +7,7 @@ body {
 }
 #fullpage {
         max-width: 1200px;
-        min-height: 1000px;
+        min-height: 800px;
         margin: 0 auto;
         text-align: left;
         min-width: 300px;
@@ -16,7 +16,7 @@ body {
 #page {
 	background-color: #D9BD97;
 	max-width: 1200px;
-	min-height: 1000px;
+	min-height: 800px;
 	margin: 0 auto;
 	text-align: left;
 	min-width: 300px;
